@@ -4,10 +4,14 @@ body{
 h1{
   color: #e74c3c;
   font-family: 'Bree Serif', Georgia, Times, serif;
+  font-size: 32px;
+  font-size: 8vw;
   text-align: center;
 }
 p, div {
   font-family: 'Nobile', Helvetica, Arial, sans-serif;
   color: #ecf0f1;
+  font-size: 16px;
+  font-size: 4vw;
   text-align: center;
 }
