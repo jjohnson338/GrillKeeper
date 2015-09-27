@@ -3,5 +3,9 @@ body{
 }
 h1{
   color: #ecf0f1;
+  font-family: 'Corben', Georgia, Times, serif;
   text-align: center;
+}
+p, div {
+  font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
