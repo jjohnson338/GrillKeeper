@@ -16,14 +16,17 @@ app.use(express.static(__dirname+'/../public'));
 io.on('connection', function(socket){
   socket.on('increment', function(){
     temperatureController.incrementTargetTemperature();
-    io.sockets.emit('dataupdate', {currentTemp: temperatureController.getActualTemperature(),
-                                    targetTemp: temperatureController.getTargetTemperature()});
+    propagateData();
   });
   socket.on('decrement', function(){
     temperatureController.decrementTargetTemperature();
-    io.sockets.emit('dataupdate', {currentTemp: temperatureController.getActualTemperature(),
-                                    targetTemp: temperatureController.getTargetTemperature()});
+    propagateData();
   })
 });
+
+function propagateData(){
+  io.sockets.emit('dataupdate', {currentTemp: temperatureController.getActualTemperature(),
+                                  targetTemp: temperatureController.getTargetTemperature()});
+}
 
 http.listen(3000);
