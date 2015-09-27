@@ -1,12 +1,13 @@
 body{
-  background-color: #3498db;
+  background: url(/img/dark_wood.png) repeat 0 0;
 }
 h1{
-  color: #ecf0f1;
+  color: #e74c3c;
   font-family: 'Bree Serif', Georgia, Times, serif;
   text-align: center;
 }
 p, div {
   font-family: 'Nobile', Helvetica, Arial, sans-serif;
+  color: #ecf0f1;
   text-align: center;
 }
