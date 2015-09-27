@@ -4,14 +4,49 @@ body{
 h1{
   color: #e74c3c;
   font-family: 'Bree Serif', Georgia, Times, serif;
-  font-size: 32px;
-  font-size: 8vw;
+  font-size: 64px;
+  font-size: 16vw;
   text-align: center;
+  text-shadow: 2px 2px 2px #95a5a6;
 }
 p, div {
   font-family: 'Nobile', Helvetica, Arial, sans-serif;
   color: #ecf0f1;
-  font-size: 16px;
-  font-size: 4vw;
+  font-size: 24px;
+  font-size: 6vw;
   text-align: center;
+}
+div.containerDiv{
+  width: 90%;
+  overflow: hidden;
+}
+div.targetTemp{
+  width: 80%;
+  float: left;
+}
+div.buttonsDiv{
+  float: left;
+}
+input.upButton{
+  background: url(/img/arrow.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  border: none;
+  cursor: pointer;
+  width: 128px;
+  height: 128px;
+  background-size: inherit;
+}
+input.downButton{
+  background: url(/img/arrow.png);
+  transform: rotate(180deg);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  border: none;
+  cursor: pointer;
+  width: 128px;
+  height: 128px;
+  background-size: inherit;
 }

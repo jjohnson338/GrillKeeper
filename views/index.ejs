@@ -2,12 +2,22 @@
   <link href='https://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
   <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
   <link href="/css/index.css" rel="stylesheet" type="text/css">
+  <script src='/socket.io-client/socket.io.js'></script>
+  <script src='/client.js'></script>
 </head>
 <body>
   <h1>Grill Keeper</h1>
-  <div>
-    Current Temp: <%= currentTemp %>
-    <br />
-    Ideal Temp  : <%= idealTemp %>
+  <div class="currentTemp">
+    Current Temp: <b id='currentTempValue'><%= currentTemp %></b>
+  </div>
+  <br />
+  <div class="containerDiv">
+    <div class="targetTemp">
+    Target Temp  : <b id='targetTempValue'><%= targetTemp %></b>
+    </div>
+    <div class="buttonsDiv">
+      <input type="button" id='upButton' class="upButton" />
+      <input type="button" id='downButton' class="downButton" />
+    </div>
   </div>
 </body>
