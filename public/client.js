@@ -13,6 +13,6 @@ window.onload = function(){
 }
 
 socket.on('dataupdate', function(data){
-  document.getElementById('currentTempValue').innerHTML = data.currentTemp;
-  document.getElementById('targetTempValue').innerHTML = data.targetTemp;
+  document.getElementById('currentTempValue').innerHTML = 'Current Temp  : ' + data.currentTemp;
+  document.getElementById('targetTempValue').innerHTML = 'Target Temp  : ' + data.targetTemp;
 });

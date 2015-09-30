@@ -1,0 +1,32 @@
+body{
+  background: url(/img/dark_wood.png) repeat 0 0;
+  height: auto;
+}
+.title{
+  color: #e74c3c;
+  font-family: 'Bree Serif', Georgia, Times, serif;
+  font-size: 8vw;
+  text-align: center;
+  text-shadow: 2px 2px 2px #95a5a6;
+}
+.container{
+    position: relative;
+    width: 100%;
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.row{
+  width: 100%;
+  margin: auto;
+  box-sizing: border-box;
+  font-family: 'Nobile', Helvetica, Arial, sans-serif;
+  color: #ecf0f1;
+  font-size: 24px;
+  font-size: 4vw;
+  text-align: center;
+}
+button{
+  width: auto;
+}
