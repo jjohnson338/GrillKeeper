@@ -1,4 +1,4 @@
-var gpio = require('onoff').Gpio,
+var Gpio = require('onoff').Gpio,
   led = new Gpio(17, 'out');
 
 var temperatureControlerObject = function() {
