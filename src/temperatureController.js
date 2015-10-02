@@ -1,5 +1,5 @@
 var Gpio = require('onoff').Gpio,
-  led = new Gpio(17, 'out');
+  blueled = new Gpio(17, 'out');
 
 var temperatureControlerObject = function() {
   var targetTemperature = 225;
@@ -12,9 +12,9 @@ var temperatureControlerObject = function() {
   var setTargetTemperature = function(newTargetTemp){
     targetTemperature = newTargetTemp;
     //Send command to pi
-    led.writeSync(1);
+    blueled.writeSync(1);
     setTimeout(function(){
-      led.writeSync(0);
+      blueled.writeSync(0);
     }, 500);
   }
   var incrementTargetTemperature = function() {
