@@ -1,3 +1,5 @@
+var gpio = require("pi-gpio");
+
 var temperatureControlerObject = function() {
   var targetTemperature = 225;
   var actualTempurature = 0;
@@ -9,6 +11,15 @@ var temperatureControlerObject = function() {
   var setTargetTemperature = function(newTargetTemp){
     targetTemperature = newTargetTemp;
     //Send command to pi
+    gpio.open(11, "output", function(err){
+      gpio.write(11, 1, function(){
+        setTimeout(function(){
+          gpio.write(11, 0, function(){
+            gpio.close(11);
+          });
+        }, 500);
+      });
+    });
   }
   var incrementTargetTemperature = function() {
     setTargetTemperature(++targetTemperature);
