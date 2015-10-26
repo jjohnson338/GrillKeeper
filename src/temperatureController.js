@@ -1,5 +1,8 @@
 var Gpio = require('onoff').Gpio,
   blueled = new Gpio(17, 'out');
+var ADC = require('adc-pi-spi'),
+  options = {'channels': [0,1]},
+  adc = new ADC('/dev/spidev0.0', options);
 
 var temperatureControlerObject = function() {
   var targetTemperature = 225;
@@ -11,11 +14,6 @@ var temperatureControlerObject = function() {
 
   var setTargetTemperature = function(newTargetTemp){
     targetTemperature = newTargetTemp;
-    //Send command to pi
-    blueled.writeSync(1);
-    setTimeout(function(){
-      blueled.writeSync(0);
-    }, 500);
   }
   var incrementTargetTemperature = function() {
     setTargetTemperature(++targetTemperature);
@@ -26,6 +24,8 @@ var temperatureControlerObject = function() {
 
   var getActualTemperature = function(){
     //Run code to determine actual temperature
+    var control = adc.state(1);
+    var variant = adc.state(0);
     return actualTempurature;
   }
 
