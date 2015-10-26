@@ -9,6 +9,7 @@
   "author": "Jared Johnson",
   "license": "ISC",
   "dependencies": {
+    "adc-pi-spi": "0.0.1",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "socket.io": "^1.3.7"
