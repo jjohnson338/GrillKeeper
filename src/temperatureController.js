@@ -1,5 +1,3 @@
-var Gpio = require('onoff').Gpio,
-  blueled = new Gpio(17, 'out');
 var ADC = require('adc-pi-spi'),
   options = {'channels': [0,1]},
   adc = new ADC('/dev/spidev0.0', options);
