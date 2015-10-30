@@ -1,6 +1,4 @@
-var ADC = require('adc-pi-spi'),
-  options = {'channels': [0,1]},
-  adc = new ADC('/dev/spidev0.0', options);
+var adc = require('./adcinterface');
 
 var temperatureControlerObject = function() {
   var targetTemperature = 225;
@@ -22,9 +20,12 @@ var temperatureControlerObject = function() {
 
   var getActualTemperature = function(){
     //Run code to determine actual temperature
-    var control = adc.state(1);
-    var variant = adc.state(0);
-    return actualTempurature;
+    adc.read(1, function(controlValue){
+      adc.read(0, function(thermValue){
+        var voltageDiff = ((controlValue - thermValue)* 5.0) / 1023;
+        return voltageDiff;       
+      });
+    });
   }
 
   return {
