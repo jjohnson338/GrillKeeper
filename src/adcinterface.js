@@ -17,6 +17,19 @@ var adcInterfaceObject = function(){
       s.open();
     });
 
+    // to select the channel, we need to compute a mode (4 bits)
+    // a mode consists of a single/diff bit and three selection bits (d2, d1, d0)
+    // if we want the input configuration to be single-ended, we use 1, for differential, use 0
+    // for the channel, if we add that to 8 (which is 0000 1000), we should get the right value
+    // ch0 = 1000, ch1 = 1001, ch2 = 1010, ch3 = 1011
+    // ch4 = 1100, ch5 = 1101, ch6 = 1110, ch7 = 1111
+    // now we need to pad this with 4 bits, to give us a byte:
+    // ch0 = 1000 << 4 = 1000 0000
+    var mode = (8 + channel) << 4;
+
+    var tx = new Buffer([1, mode, 0]);
+    var rx = new Buffer([0, 0, 0]);
+    
     spi.transfer(tx, rx, function(dev, buffer) {
           // logic explained:
 

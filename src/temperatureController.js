@@ -20,8 +20,8 @@ var temperatureControlerObject = function() {
 
   var getActualTemperature = function(){
     //Run code to determine actual temperature
-    adcinterface.read(1, function(controlValue){
-      adcinterface.read(0, function(thermValue){
+    adcinterface.read(0, function(thermValue){
+      adcinterface.read(1, function(controlValue){
         var voltageDiff = ((controlValue - thermValue)* 5.0) / 1023;
         return voltageDiff;
       });
