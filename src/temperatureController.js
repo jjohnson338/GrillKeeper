@@ -1,4 +1,4 @@
-var adc = require('./adcinterface');
+var adcinterface = require('./adcinterface');
 
 var temperatureControlerObject = function() {
   var targetTemperature = 225;
