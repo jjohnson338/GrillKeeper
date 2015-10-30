@@ -11,7 +11,7 @@ if (!fs.existsSync(device)) {
 
 var adcInterfaceObject = function(){
 
-  var read = function(channel, callback){
+  var readChannel = function(channel, callback){
     //Open the spi for reading
     spi = new SPI.Spi(device, [], function(s) {
       s.open();
@@ -29,7 +29,7 @@ var adcInterfaceObject = function(){
 
     var tx = new Buffer([1, mode, 0]);
     var rx = new Buffer([0, 0, 0]);
-    
+
     spi.transfer(tx, rx, function(dev, buffer) {
           // logic explained:
 
@@ -64,7 +64,7 @@ var adcInterfaceObject = function(){
 
     return {
       //Public functions
-      read: read
+      readChannel: readChannel
     }
 
 }();
