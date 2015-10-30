@@ -4,6 +4,7 @@ var temperatureControlerObject = function() {
 
   var targetTemperature = 225;
   var actualTempurature = 0;
+  var voltageDiff = 0;
 
   var getTargetTemperature = function(){
     return targetTemperature;
@@ -27,9 +28,10 @@ var temperatureControlerObject = function() {
         console.log('ControlValue =' + controlValue);
         var controlVoltage = (controlValue*5)/1023;
         var thermVoltage = (thermValue*5)/1023;
-        return controlVoltage - thermVoltage;
+        voltageDiff = controlVoltage - thermVoltage;
       });
     });
+    return voltageDiff;
   }
 
   return {
