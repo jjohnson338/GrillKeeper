@@ -23,8 +23,11 @@ var temperatureControlerObject = function() {
     //Run code to determine actual temperature
     adcinterface.readChannel(0, function(thermValue){
       adcinterface.readChannel(1, function(controlValue){
-        var voltageDiff = ((controlValue - thermValue)* 5.0) / 1023;
-        return voltageDiff;
+        console.log('ThermValue =' + thermValue);
+        console.log('ControlValue =' + controlValue);
+        var controlVoltage = (controlValue*5)/1023;
+        var thermVoltage = (thermValue*5)/1023;
+        return controlVoltage - thermVoltage;
       });
     });
   }

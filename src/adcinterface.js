@@ -13,7 +13,10 @@ var adcInterfaceObject = function(){
 
   var readChannel = function(channel, callback){
     //Open the spi for reading
-    spi = new SPI.Spi(device, [], function(s) {
+    spi = new SPI.Spi(device, {
+      'mode': SPI.MODE['MODE_0'],
+      'chipSelect': SPI.CS['none']
+    }, function(s) {
       s.open();
     });
 
@@ -71,4 +74,4 @@ var adcInterfaceObject = function(){
 
 
 
-module.export = adcInterfaceObject;
+module.exports = adcInterfaceObject;
