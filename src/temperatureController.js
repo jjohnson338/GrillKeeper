@@ -20,12 +20,13 @@ var temperatureControlerObject = function() {
 
   var getActualTemperature = function(){
     //Run code to determine actual temperature
-    adc.read(1, function(controlValue){
-      adc.read(0, function(thermValue){
-        var voltageDiff = ((controlValue - thermValue)* 5.0) / 1023;
-        return voltageDiff;       
-      });
-    });
+    //adc.read(1, function(controlValue){
+    //  adc.read(0, function(thermValue){
+    //    var voltageDiff = ((controlValue - thermValue)* 5.0) / 1023;
+    //    return voltageDiff;
+    //  });
+    //});
+    return actualTempurature;
   }
 
   return {
