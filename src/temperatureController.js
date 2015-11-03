@@ -52,7 +52,7 @@ var temperatureControlerObject = function() {
 
         //Calculate Temp in Kelvin
         var TempKelvin = 1/(A+(B*(math.log(ThermistorResistance)))+(C*math.pow(math.log(ThermistorResistance), 3)));
-
+        console.log('Temp K =' + TempKelvin);
         //Convert Kelvin to Fahrenheit and return it
         return ((TempKelvin - 273.15)*1.8)+32;
 };
