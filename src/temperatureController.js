@@ -15,10 +15,10 @@ var temperatureControlerObject = function() {
     targetTemperature = newTargetTemp;
   }
   var IncrementTargetTemperature = function() {
-    setTargetTemperature(++targetTemperature);
+    SetTargetTemperature(++targetTemperature);
   }
   var DecrementTargetTemperature = function() {
-    setTargetTemperature(--targetTemperature);
+    SetTargetTemperature(--targetTemperature);
   }
 
   var GetActualTemperature = function(){
