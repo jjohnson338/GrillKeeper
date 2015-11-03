@@ -7,7 +7,7 @@ var temperatureControlerObject = function() {
   var targetTemperature = 225;
   var actualTempurature = 0;
 
-  var getTargetTemperature = function(){
+  var GetTargetTemperature = function(){
     return targetTemperature;
   }
 
