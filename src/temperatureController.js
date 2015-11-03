@@ -30,7 +30,9 @@ var temperatureControlerObject = function() {
         var controlVoltage = (controlValue * 5.0)/1023;
         var thermVoltage = (thermValue * 5.0)/1023;
         var voltageDiff = controlVoltage - thermVoltage;
+        console.log("DiffVoltage =" + voltageDiff);
         actualTempurature = DiffVoltageToTemp(voltageDiff);
+        console.log("Actual Temperature =" + actualTempurature);
       });
     });
     return actualTempurature;
