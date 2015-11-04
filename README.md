@@ -1,7 +1,7 @@
 # GrillKeeper
 
 ##Description
-A webpage controlled smoker temperature controller written in Node.js
+A webpage controlled smoker temperature controller written in Node.js and intended to be hosted on the Raspberry Pi
 
 ##Shopping List
 * [Raspberry Pi 2 Model B Project Board](http://www.amazon.com/Raspberry-Pi-Model-Project-Board/dp/B00T2U7R7I/ref=pd_bxgy_147_2?ie=UTF8&refRID=0Z1C4D4YVAMAQ59ADS7N)
