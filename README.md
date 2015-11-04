@@ -3,6 +3,9 @@
 ##Description
 A webpage controlled smoker temperature controller written in Node.js and intended to be hosted on the Raspberry Pi
 
+##Screenshots
+![Webpage](http://i.imgur.com/6O1Y68A.jpg)
+
 ##Shopping List
 * [Raspberry Pi 2 Model B Project Board](http://www.amazon.com/Raspberry-Pi-Model-Project-Board/dp/B00T2U7R7I/ref=pd_bxgy_147_2?ie=UTF8&refRID=0Z1C4D4YVAMAQ59ADS7N)
 * [MCP3008 ADC](http://www.amazon.com/gp/product/B00EU1PY06?psc=1&redirect=true&ref_=oh_aui_detailpage_o01_s00)
