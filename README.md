@@ -19,3 +19,9 @@ A webpage controlled smoker temperature controller written in Node.js and intend
 
 ##Purpose
 An exercise to learn more Node.js and Beginner's Circuitry
+
+
+##TODO
+* Refactor to best practices
+* Wire in fan (to be directed at the smoker air intake)
+	- Code to operate fan depending on state of Current Temp and Target Temp
