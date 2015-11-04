@@ -8,26 +8,26 @@ var io = require('socket.io')(http);
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname+'/../public'));
  app.get('/', function(req, res){
-   res.render('index', {currentTemp: temperatureController.GetActualTemperature(),
-                        targetTemp: temperatureController.GetTargetTemperature()});
+   res.render('index', {currentTemp: temperatureController.getActualTemperature(),
+                        targetTemp: temperatureController.getTargetTemperature()});
  });
 
 
 //Socket.IO
 io.on('connection', function(socket){
   socket.on('increment', function(){
-    temperatureController.IncrementTargetTemperature();
+    temperatureController.incrementTargetTemperature();
     propagateData();
   });
   socket.on('decrement', function(){
-    temperatureController.DecrementTargetTemperature();
+    temperatureController.decrementTargetTemperature();
     propagateData();
   })
 });
 
 function propagateData(){
-  io.sockets.emit('dataupdate', {currentTemp: temperatureController.GetActualTemperature(),
-                                  targetTemp: temperatureController.GetTargetTemperature()});
+  io.sockets.emit('dataupdate', {currentTemp: temperatureController.getActualTemperature(),
+                                  targetTemp: temperatureController.getTargetTemperature()});
 }
 
 http.listen(3000);

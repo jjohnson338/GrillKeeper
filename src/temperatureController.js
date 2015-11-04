@@ -7,21 +7,21 @@ var temperatureControlerObject = function() {
   var targetTemperature = 225;
   var actualTempurature = 0;
 
-  var GetTargetTemperature = function(){
+  var getTargetTemperature = function(){
     return targetTemperature;
   }
 
-  var SetTargetTemperature = function(newTargetTemp){
+  var setTargetTemperature = function(newTargetTemp){
     targetTemperature = newTargetTemp;
   }
-  var IncrementTargetTemperature = function() {
-    SetTargetTemperature(++targetTemperature);
+  var incrementTargetTemperature = function() {
+    setTargetTemperature(++targetTemperature);
   }
-  var DecrementTargetTemperature = function() {
-    SetTargetTemperature(--targetTemperature);
+  var decrementTargetTemperature = function() {
+    setTargetTemperature(--targetTemperature);
   }
 
-  var GetActualTemperature = function(){
+  var getActualTemperature = function(){
     //Run code to determine actual temperature
     adcinterface.readChannel(0, function(thermValue){
       adcinterface.readChannel(1, function(controlValue){
@@ -31,14 +31,14 @@ var temperatureControlerObject = function() {
         var thermVoltage = (thermValue * 5.0)/1023;
         var voltageDiff = thermVoltage - controlVoltage;
         console.log("DiffVoltage =" + voltageDiff);
-        actualTempurature = DiffVoltageToTemp(voltageDiff);
+        actualTempurature = diffVoltageToTemp(voltageDiff);
         console.log("Actual Temperature =" + actualTempurature);
       });
     });
     return actualTempurature;
   }
 
-  var DiffVoltageToTemp = function(DiffVoltage){
+  var diffVoltageToTemp = function(DiffVoltage){
         //Constants
         var ExcitationVoltage = 5.0;
         var R = 47000; //Resistance of Known Resistors
@@ -59,11 +59,11 @@ var temperatureControlerObject = function() {
 
   return {
     //Pubic functions
-    GetTargetTemperature: GetTargetTemperature,
-    SetTargetTemperature: SetTargetTemperature,
-    IncrementTargetTemperature: IncrementTargetTemperature,
-    DecrementTargetTemperature: DecrementTargetTemperature,
-    GetActualTemperature: GetActualTemperature
+    getTargetTemperature: getTargetTemperature,
+    setTargetTemperature: setTargetTemperature,
+    incrementTargetTemperature: incrementTargetTemperature,
+    decrementTargetTemperature: decrementTargetTemperature,
+    getActualTemperature: getActualTemperature
   }
 }();
 
