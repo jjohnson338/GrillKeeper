@@ -12,3 +12,7 @@ A webpage controlled smoker temperature controller written in Node.js
 * [47K Ohm Resistors x 3](http://www.amazon.com/gp/product/B00NABVTCY?keywords=47000%20ohm%20resistors&qid=1446605226&ref_=sr_1_2&sr=8-2)
 * [Large Breadboard](http://www.amazon.com/gp/product/B005GYATUG?psc=1&redirect=true&ref_=oh_aui_detailpage_o06_s01)
 * [Maverick ET732 Probe](http://www.amazon.com/gp/product/B006XLWL7K?psc=1&redirect=true&ref_=oh_aui_detailpage_o07_s00)
+
+
+##Purpose
+An exercise to learn more Node.js and Beginner's Circuitry
