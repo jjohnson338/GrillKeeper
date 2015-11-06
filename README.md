@@ -26,4 +26,3 @@ An exercise to learn more Node.js and Beginner's Circuitry
 * Refactor to best practices
 * Wire in fan (to be directed at the smoker air intake)
 	- Code to operate fan depending on state of Current Temp and Target Temp
-* Include wiring diagram
