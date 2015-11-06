@@ -3,6 +3,9 @@
 ##Description
 A webpage controlled smoker temperature controller written in Node.js and intended to be hosted on the Raspberry Pi
 
+##Purpose
+An exercise to learn more Node.js and Beginner's Circuitry
+
 ##Screenshots
 ![Webpage](http://i.imgur.com/6O1Y68A.jpg)
 
@@ -16,10 +19,8 @@ A webpage controlled smoker temperature controller written in Node.js and intend
 * [Large Breadboard](http://www.amazon.com/gp/product/B005GYATUG?psc=1&redirect=true&ref_=oh_aui_detailpage_o06_s01)
 * [Maverick ET732 Probe](http://www.amazon.com/gp/product/B006XLWL7K?psc=1&redirect=true&ref_=oh_aui_detailpage_o07_s00)
 
-
-##Purpose
-An exercise to learn more Node.js and Beginner's Circuitry
-
+##Wiring Diagram
+![Wiring Diagram](http://i.imgur.com/DqoDum2.png)
 
 ##TODO
 * Refactor to best practices
