@@ -1,32 +1,38 @@
-var temperatureController = require('./temperatureController');
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const temperatureController = require('./temperatureController');
+const express = require('express');
+const io = require('socket.io')(http);
 
+const gatherData = function () {
+    return {
+        currentTemp: temperatureController.getActualTemperature(),
+        targetTemp: temperatureController.getTargetTemperature(),
+    };
+};
+
+const propagateData = function () {
+    io.sockets.emit('dataupdate', gatherData());
+};
+
+const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname+'/../public'));
  app.get('/', function(req, res){
-   res.render('index', {currentTemp: temperatureController.getActualTemperature(),
-                        targetTemp: temperatureController.getTargetTemperature()});
+   res.render('index', gatherData());
  });
 
+ app.listen(3000);
 
-//Socket.IO
-io.on('connection', function(socket){
-  socket.on('increment', function(){
-    temperatureController.incrementTargetTemperature();
-    propagateData();
-  });
-  socket.on('decrement', function(){
-    temperatureController.decrementTargetTemperature();
-    propagateData();
-  })
-});
 
-function propagateData(){
-  io.sockets.emit('dataupdate', {currentTemp: temperatureController.getActualTemperature(),
-                                  targetTemp: temperatureController.getTargetTemperature()});
-}
+//Anon function syntax can be param(s) => function code as below (it's shorthand)
 
-http.listen(3000);
+ //Socket.IO
+ io.on('connection', socket => {
+     socket.on('increment', () => {
+         temperatureController.incrementTargetTemperature();
+         propagateData();
+     });
+     socket.on('decrement', () => {
+         temperatureController.decrementTargetTemperature();
+         propagateData();
+     })
+ });
