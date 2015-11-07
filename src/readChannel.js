@@ -11,7 +11,7 @@ if (!fs.existsSync(device)) {
 
 const readChannel = function(channel){
   //Open the spi for reading
-  spi = new SPI.Spi(device, {
+  const spi = new SPI.Spi(device, {
     'mode': SPI.MODE['MODE_0'],
     'chipSelect': SPI.CS['none']
   });
