@@ -23,15 +23,13 @@ app.use(express.static(__dirname+'/../public'));
  app.listen(3000);
 
 
-//Anon function syntax can be param(s) => function code as below (it's shorthand)
-
  //Socket.IO
- io.on('connection', socket => {
-     socket.on('increment', () => {
+ io.on('connection', function(socket) {
+     socket.on('increment', function(){
          temperatureController.incrementTargetTemperature();
          propagateData();
      });
-     socket.on('decrement', () => {
+     socket.on('decrement', function() {
          temperatureController.decrementTargetTemperature();
          propagateData();
      })
