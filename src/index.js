@@ -1,8 +1,8 @@
-var temperatureController = require('./temperatureController');
-var express = require('express');
-var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const temperatureController = require('./temperatureController');
+const express = require('express');
+const app = express();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 const gatherData = function () {
     return {
@@ -10,7 +10,6 @@ const gatherData = function () {
         targetTemp: temperatureController.getTargetTemperature(),
     };
 };
-
 
 const propagateData = function () {
     io.sockets.emit('dataupdate', gatherData());
