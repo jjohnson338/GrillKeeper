@@ -29,3 +29,4 @@ An exercise to learn more Node.js and Beginner's Circuitry
 ##Contributors
 * [Jared Johnson](https://github.com/jjohnson338)
 * [Shawn Dellysse](https://github.com/shawndellysse)
+* Jacob Shelton
