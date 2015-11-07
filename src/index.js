@@ -23,6 +23,7 @@ const propagateData = function () {
 
 const updateActualTemperature = function () {
     actualTemperature = getActualTemperature();
+    console.log(actualTemperature);
     propagateData();
     setTimeout(updateActualTemperature, 500);
 };
