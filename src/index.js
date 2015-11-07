@@ -21,17 +21,17 @@ app.use(express.static(__dirname+'/../public'));
    res.render('index', gatherData());
  });
 
+
+  //Socket.IO
+  io.on('connection', function(socket) {
+      socket.on('increment', function(){
+          temperatureController.incrementTargetTemperature();
+          propagateData();
+      });
+      socket.on('decrement', function() {
+          temperatureController.decrementTargetTemperature();
+          propagateData();
+      })
+  });
+
  app.listen(3000);
-
-
- //Socket.IO
- io.on('connection', function(socket) {
-     socket.on('increment', function(){
-         temperatureController.incrementTargetTemperature();
-         propagateData();
-     });
-     socket.on('decrement', function() {
-         temperatureController.decrementTargetTemperature();
-         propagateData();
-     })
- });
