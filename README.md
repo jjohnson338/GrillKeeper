@@ -7,7 +7,7 @@ A webpage controlled smoker temperature controller written in Node.js and intend
 An exercise to learn more Node.js and Beginner's Circuitry
 
 ##Screenshots
-![Webpage](http://i.imgur.com/6O1Y68A.jpg)
+![Webpage](http://i.imgur.com/cmHHzhP.png)
 
 ##Shopping List
 * [Raspberry Pi 2 Model B Project Board](http://www.amazon.com/Raspberry-Pi-Model-Project-Board/dp/B00T2U7R7I/ref=pd_bxgy_147_2?ie=UTF8&refRID=0Z1C4D4YVAMAQ59ADS7N)
