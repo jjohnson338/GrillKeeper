@@ -1,6 +1,6 @@
 //This code is heavily pulled from https://github.com/adamkdean/spi-mcp3008-tmp36/blob/master/src/index.js
 //Credit to owner
-const SPI = require('spi');
+const SPI = require('./spi');
 const fs = require('fs');
 
 const device = '/dev/spidev0.0';

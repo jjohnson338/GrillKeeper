@@ -5,7 +5,7 @@ const consoleLog = console.log;
 // thar are ran at require time
 console.log = function () {};
 const SPI = require("spi");
-console.log = oldLog;
+console.log = consoleLog;
 
 // We gotta patch the constructor due to it reporting errors via console.log
 // instead of throwing. Callback here is useless because everything is done
