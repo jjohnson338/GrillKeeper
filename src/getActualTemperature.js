@@ -28,10 +28,10 @@ const getActualTemperature = function () {
     const thermValue = readChannel(0);
     const controlValue = readChannel(1);
 
-    var controlVoltage = (controlValue * ExcitationVoltage)/1023;
-    var thermVoltage = (thermValue * ExcitationVoltage)/1023;
-    var voltageDiff = thermVoltage - controlVoltage;
-    actualTempurature = diffVoltageToTemp(voltageDiff);
+    const controlVoltage = (controlValue * ExcitationVoltage)/1023;
+    const thermVoltage = (thermValue * ExcitationVoltage)/1023;
+    const voltageDiff = thermVoltage - controlVoltage;
+    const actualTempurature = diffVoltageToTemp(voltageDiff);
 
     return actualTempurature;
 };
