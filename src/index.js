@@ -4,34 +4,29 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-const gatherData = function (){
-    return {
-        currentTemp: temperatureController.getActualTemperature(),
-        targetTemp: temperatureController.getTargetTemperature(),
-    };
-};
-
-const propagateData = function () {
-    io.sockets.emit('dataupdate', gatherData());
-};
-
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname+'/../public'));
  app.get('/', function(req, res){
-   res.render('index', gatherData());
+   res.render('index', {currentTemp: temperatureController.getActualTemperature(),
+                        targetTemp: temperatureController.getTargetTemperature()});
  });
 
 
-  //Socket.IO
-  io.on('connection', function(socket) {
-      socket.on('increment', function(){
-          temperatureController.incrementTargetTemperature();
-          propagateData();
-      });
-      socket.on('decrement', function() {
-          temperatureController.decrementTargetTemperature();
-          propagateData();
-      })
+//Socket.IO
+io.on('connection', function(socket){
+  socket.on('increment', function(){
+    temperatureController.incrementTargetTemperature();
+    propagateData();
   });
+  socket.on('decrement', function(){
+    temperatureController.decrementTargetTemperature();
+    propagateData();
+  })
+});
 
- app.listen(3000);
+function propagateData(){
+  io.sockets.emit('dataupdate', {currentTemp: temperatureController.getActualTemperature(),
+                                  targetTemp: temperatureController.getTargetTemperature()});
+}
+
+http.listen(3000);
