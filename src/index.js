@@ -12,8 +12,7 @@ const gatherData = function (){
 };
 
 const propagateData = function () {
-    var results = gatherData();
-    io.sockets.emit('dataupdate', results);
+    io.sockets.emit('dataupdate', gatherData());
 };
 
 app.set('view engine', 'ejs');
