@@ -1,3 +1,4 @@
+console.log("Application started");
 const getActualTemperature = require('./getActualTemperature');
 const express = require('express');
 const app = express();
@@ -11,7 +12,7 @@ let actualTemperature = 0;
 
 const gatherData = function () {
     return {
-        currentTemp: actualTempurature,
+        currentTemp: actualTemperature,
         targetTemp: targetTemperature,
     };
 };
