@@ -4,7 +4,7 @@ const smoothValues = function(newvalue){
   last20TempsArr.unshift(newvalue);//Add new value to front of array
 
   //Lets keep it to twenty
-  if(last20TempsArr.length <= 20)
+  if(last20TempsArr.length >= 20)
     last20TempsArr.pop();
 
   let accumulator = 0;
