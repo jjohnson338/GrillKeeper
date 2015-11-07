@@ -4,6 +4,11 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+//State
+let targetTemperature = 225;
+let actualTempurature = 0;
+
+
 const gatherData = function () {
     return {
         currentTemp: actualTempurature,
@@ -20,11 +25,6 @@ const updateActualTemperature = function () {
     propagateData();
     setTimeout(updateActualTemperature, 500);
 };
-
-//State
-let targetTemperature = 225;
-let actualTempurature = 0;
-
 
 //Express setup
 app.set('view engine', 'ejs');
