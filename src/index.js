@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http').Server(express);
 const io = require('socket.io')(http);
 
-const gatherData = function () {
+const gatherData = function (){
     return {
         currentTemp: temperatureController.getActualTemperature(),
         targetTemp: temperatureController.getTargetTemperature(),
@@ -11,7 +11,8 @@ const gatherData = function () {
 };
 
 const propagateData = function () {
-    io.sockets.emit('dataupdate', gatherData());
+    var results = gatherData();
+    io.sockets.emit('dataupdate', results);
 };
 
 const app = express();
