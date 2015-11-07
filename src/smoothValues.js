@@ -7,11 +7,11 @@ const smoothValues = function(newvalue){
   if(last20TempsArr.length <= 20)
     last20TempsArr.pop();
 
-  let smoothedValue = 0;
+  let accumulator = 0;
   for (let temp of last20TempsArr) {
-    smoothedValue += temp;
+    accumulator += temp;
   }
-  smoothedValue /= last20TempsArr.length;
+  let smoothedValue = accumulator / last20TempsArr.length;
   smoothedValue = Math.round(smoothedValue);
   return smoothedValue;
 };
