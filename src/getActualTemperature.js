@@ -4,20 +4,20 @@ const math = require("mathjs");
 const ExcitationVoltage = 5.0;
 
 //Since i'm not exposing this function, it's essentially private
-var diffVoltageToTemp = function(DiffVoltage){
+const diffVoltageToTemp = function(DiffVoltage){
     //Constants
-    var R = 47000; //Resistance of Known Resistors
+    const R = 47000; //Resistance of Known Resistors
 
     //Steinhart-Hart Coefficients
-    var A = 0.000515942869144762;
-    var B = 0.000172084582161862;
-    var C = 2.38992092042526e-7;
+    const A = 0.000515942869144762;
+    const B = 0.000172084582161862;
+    const C = 2.38992092042526e-7;
 
     //Calculate Resistance of Thermistor
-    var ThermistorResistance = (-2*R)*(((DiffVoltage/ExcitationVoltage)+0.5)/((2*(DiffVoltage/ExcitationVoltage))-1));
+    const ThermistorResistance = (-2*R)*(((DiffVoltage/ExcitationVoltage)+0.5)/((2*(DiffVoltage/ExcitationVoltage))-1));
 
     //Calculate Temp in Kelvin using the Steinhart-Hart Equation
-    var TempKelvin = 1/(A+(B*(math.log(ThermistorResistance)))+(C*math.pow(math.log(ThermistorResistance), 3)));
+    const TempKelvin = 1/(A+(B*(math.log(ThermistorResistance)))+(C*math.pow(math.log(ThermistorResistance), 3)));
 
     //Convert Kelvin to Fahrenheit and return it
     return math.round(((TempKelvin - 273.15)*1.8)+32);

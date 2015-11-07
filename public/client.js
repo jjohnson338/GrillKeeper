@@ -1,5 +1,5 @@
 //Socket.io
-var socket = io.connect(window.location.href);
+const socket = io.connect(window.location.href);
 
 
 window.onload = function(){

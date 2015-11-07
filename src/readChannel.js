@@ -25,7 +25,7 @@ const readChannel = function(channel){
   // ch4 = 1100, ch5 = 1101, ch6 = 1110, ch7 = 1111
   // now we need to pad this with 4 bits, to give us a byte:
   // ch0 = 1000 << 4 = 1000 0000
-  var mode = (8 + channel) << 4;
+  const mode = (8 + channel) << 4;
 
   const rx = spi.transfer(new Buffer([1, mode, 0]));
 
@@ -54,7 +54,7 @@ const readChannel = function(channel){
   // 0000 0010 0000 1111 (527)
 
 
-  var value = ((rx[1] & 3) << 8) + rx[2];
+  const value = ((rx[1] & 3) << 8) + rx[2];
   spi.close();
 
   return value;
