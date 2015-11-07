@@ -6,7 +6,7 @@ const io = require('socket.io')(http);
 
 //State
 let targetTemperature = 225;
-let actualTempurature = 0;
+let actualTemperature = 0;
 
 
 const gatherData = function () {
