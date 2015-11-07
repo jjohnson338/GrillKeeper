@@ -16,7 +16,6 @@ const propagateData = function () {
     io.sockets.emit('dataupdate', results);
 };
 
-const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname+'/../public'));
  app.get('/', function(req, res){
