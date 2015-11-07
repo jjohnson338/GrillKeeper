@@ -8,7 +8,7 @@ const io = require('socket.io')(http);
 //State
 let targetTemperature = 225;
 let actualTemperature = 0;
-
+let last20TempsArr = [];
 
 const gatherData = function () {
     return {
@@ -21,8 +21,26 @@ const propagateData = function () {
     io.sockets.emit('dataupdate', gatherData());
 };
 
+
+const smoothValues = function(newvalue){
+  last20TempsArr.unshift(newvalue);//Add new value to front of array
+
+  //Lets keep it to twenty
+  if(last20TempsArr.length <= 20)
+    last20TempsArr.pop();
+
+  let smoothedValue = 0;
+  for (let temp of last20TempsArr) {
+    smoothedValue += temp;
+  }
+  smoothedValue /= last20TempsArr.length;
+  smoothedValue = Math.round(smoothedValue);
+  return smoothedValue;
+};
+
 const updateActualTemperature = function () {
     actualTemperature = getActualTemperature();
+    actualTemperature = smoothValues(actualTemperature);
     console.log(actualTemperature);
     propagateData();
     setTimeout(updateActualTemperature, 500);
