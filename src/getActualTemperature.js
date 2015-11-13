@@ -27,6 +27,8 @@ const getActualTemperature = function () {
     //Run code to determine actual temperature
     const thermValue = readChannel(0);
     const controlValue = readChannel(1);
+    console.log("thermValue: "+ thermValue);
+    console.log("controlValue" + controlValue);
 
     const controlVoltage = (controlValue * ExcitationVoltage)/1023;
     const thermVoltage = (thermValue * ExcitationVoltage)/1023;
