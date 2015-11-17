@@ -1,6 +1,7 @@
 console.log("Application started");
 const getActualTemperature = require('./getActualTemperature');
 const smoothValues = require('./smoothValues');
+const fanController = require('./fanController');
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
@@ -9,17 +10,20 @@ const io = require('socket.io')(http);
 //State
 let targetTemperature = 225;
 let actualTemperature = 0;
+let fanState = false;
 
 const gatherData = function () {
     return {
         currentTemp: actualTemperature,
         targetTemp: targetTemperature,
+        fanState: fanState
     };
 };
 
 const propagateData = function () {
     io.sockets.emit('dataupdate', gatherData());
 };
+
 
 const updateActualTemperature = function () {
     actualTemperature = smoothValues(getActualTemperature());
@@ -44,7 +48,21 @@ io.on('connection', function(socket){
   socket.on('decrement', function(){
     targetTemperature -= 1;
     propagateData();
-  })
+  });
+  socket.on('fan-on', function(){
+    console.log("Fan On Triggered");
+    fanState = true;
+    //Turn on fan GPIO
+    fanController(1);
+    propagateData();
+  });
+  socket.on('fan-off', function(){
+    console.log("Fan Off Triggered");
+    fanState = false;
+    //Turn off fan GPIO
+    fanController(0);
+    propagateData();
+  });
 });
 
 
