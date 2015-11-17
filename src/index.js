@@ -24,7 +24,7 @@ const propagateData = function () {
 const updateActualTemperature = function () {
     actualTemperature = smoothValues(getActualTemperature());
     propagateData();
-    setTimeout(updateActualTemperature, 5000);
+    setTimeout(updateActualTemperature, 500);
 };
 
 //Express setup
