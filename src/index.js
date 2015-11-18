@@ -28,10 +28,11 @@ const propagateData = function () {
 };
 
 
-const updateActualTemperature = function () {
+const updateTempAndRegulateFan = function () {
     actualTemperature = smoothValues(getActualTemperature());
+    operateFan();
     propagateData();
-    setTimeout(updateActualTemperature, 500);
+    setTimeout(updateTempAndRegulateFan, 500);
 };
 
 const operateFan = function(){
@@ -80,5 +81,4 @@ io.on('connection', function(socket){
 
 //Continuous execution
 http.listen(3000);
-updateActualTemperature();
-operateFan();
+updateTempAndRegulateFan();
