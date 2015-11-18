@@ -39,11 +39,11 @@ const operateFan = function(){
   //Guard Clause
   if(!autoControlFan)
     return;
-  console.log("Actual Temp:"+actualTemperature+", tempVariance:"+tempVariance+",targetTemperature:"+targetTemperature);
+  
   //I'm using an acceptable temp variance because I don't want to burn out the relay with constant on off switching
   if((actualTemperature + tempVariance) > targetTemperature)
     fanController(0);//Turn off fan
-  else if((actualTemperature - tempVariance) < targetTemperature)
+  else if((targetTemperature - tempVariance) > actualTemperature)
     fanController(1);//Turn on fan
 
   setTimeout(operateFan, 500);
