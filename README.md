@@ -25,7 +25,7 @@ An exercise to learn more Node.js and Beginner's Circuitry
 * [Power for Blower Fan](http://www.amazon.com/gp/product/B006GEPUYA?psc=1&redirect=true&ref_=oh_aui_detailpage_o07_s01)
 
 ##Wiring Diagram
-![Wiring Diagram](http://i.imgur.com/DqoDum2.png)
+![Wiring Diagram](http://i.imgur.com/LwhT8Mi.png)
 
 ##Setup and Install Instructions
 [Install Raspbian](https://www.raspberrypi.org/documentation/installation/installing-images/)
@@ -85,8 +85,6 @@ At this point, navigate to the pi IP address on port 3000 to view the site (Ex. 
 * Use const and let instead of var in JavaScript variable declaration for more predictable scoping.
 * Modularize, modularize, modularize!!! It's what node is good at, keeps your code cleaner, and easier to debug. Less moving parts together in the same space.
 
-##TODO
-* Update wiring diagram
 
 ##Contributors
 * [Jared Johnson](https://github.com/jjohnson338)
