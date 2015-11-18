@@ -40,9 +40,9 @@ const operateFan = function(){
     return;
 
   //I'm using an acceptable temp variance because I don't want to burn out the relay with constant on off switching
-  if((actualTemperature + tempVariance) > targetTemp)
+  if((actualTemperature + tempVariance) > targetTemperature)
     fanController(0);//Turn off fan
-  else if((actualTemperature - tempVariance) < targetTemp)
+  else if((actualTemperature - tempVariance) < targetTemperature)
     fanController(1);//Turn on fan
 
   setTimeout(operateFan, 500);
