@@ -23,6 +23,7 @@ An exercise to learn more Node.js and Beginner's Circuitry
 * [5v Relay Module for Arduino](http://www.amazon.com/gp/product/B00VRUAHLE?psc=1&redirect=true&ref_=oh_aui_detailpage_o00_s00)
 * [DC Blower Fan](http://www.amazon.com/gp/product/B00B2ARV22?psc=1&redirect=true&ref_=oh_aui_detailpage_o02_s00)
 * [Power for Blower Fan](http://www.amazon.com/gp/product/B006GEPUYA?psc=1&redirect=true&ref_=oh_aui_detailpage_o07_s01)
+
 ##Wiring Diagram
 ![Wiring Diagram](http://i.imgur.com/DqoDum2.png)
 
@@ -61,10 +62,12 @@ At this point, navigate to the pi IP address on port 3000 to view the site (Ex. 
 
 
 ##Lessons Learned
+
 ###Hardware
 * Don't solder the MCP3008 chip directly to a breadboard. Solder a socket, then plug the chip into the socket. (I lost one chip by soldering directly to it and that was a hard problem to debug)
 * Make sure you have a precise tip for your soldering iron. (Had to start over on a new board after I consistently arced solder over to a different lane)
 * A multimeter is a must when doing any kind of electrical work. Consider it a debug tool for physical electronics.
+
 ###Software
 * Exclude the node_modules folder from your git repo. When I had it setup like this early in development, it caused two problems:
   - Greatly increased my repo size (not a huge deal really)
