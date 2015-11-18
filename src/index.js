@@ -7,16 +7,19 @@ const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
+//Constants
+const tempVariance = 5;
+
 //State
 let targetTemperature = 225;
 let actualTemperature = 0;
-let fanState = false;
+let autoControlFan = false;
 
 const gatherData = function () {
     return {
         currentTemp: actualTemperature,
         targetTemp: targetTemperature,
-        fanState: fanState
+        autoControlFan: autoControlFan
     };
 };
 
@@ -29,6 +32,20 @@ const updateActualTemperature = function () {
     actualTemperature = smoothValues(getActualTemperature());
     propagateData();
     setTimeout(updateActualTemperature, 500);
+};
+
+const operateFan = function(){
+  //Guard Clause
+  if(!autoControlFan)
+    return;
+
+  //I'm using an acceptable temp variance because I don't want to burn out the relay with constant on off switching
+  if((actualTemperature + tempVariance) > targetTemp)
+    fanController(0);//Turn off fan
+  else if((actualTemperature - tempVariance) < targetTemp)
+    fanController(1);//Turn on fan
+
+  setTimeout(operateFan, 500);
 };
 
 //Express setup
@@ -51,20 +68,17 @@ io.on('connection', function(socket){
   });
   socket.on('fan-on', function(){
     console.log("Fan On Triggered");
-    fanState = true;
-    //Turn on fan GPIO
-    fanController(1);
+    autoControlFan = true;
     propagateData();
   });
   socket.on('fan-off', function(){
     console.log("Fan Off Triggered");
-    fanState = false;
-    //Turn off fan GPIO
-    fanController(0);
+    autoControlFan = false;
     propagateData();
   });
 });
 
-
+//Continuous execution
 http.listen(3000);
 updateActualTemperature();
+operateFan();
