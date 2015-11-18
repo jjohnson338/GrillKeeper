@@ -80,8 +80,8 @@ At this point, navigate to the pi IP address on port 3000 to view the site (Ex. 
 
 ###Software
 * Exclude the node_modules folder from your git repo. When I had it setup like this early in development, it caused two problems:
-  * Greatly increased my repo size (not a huge deal really)
-	* When I pushed my code to my pi as a remote repo (and ran my post-recieve script to get everything in place and running), it would strangely error out and not work when it worked fine on my computer...Issue was that one of the npm modules have actual compiled code in C (the spi package) and it copied over my x86 compiled code and tried to run it on an ARM processor.
+  - Greatly increased my repo size (not a huge deal really)
+  - When I pushed my code to my pi as a remote repo (and ran my post-recieve script to get everything in place and running), it would strangely error out and not work when it worked fine on my computer...Issue was that one of the npm modules have actual compiled code in C (the spi package) and it copied over my x86 compiled code and tried to run it on an ARM processor.
 * Use const and let instead of var in JavaScript variable declaration for more predictable scoping.
 * Modularize, modularize, modularize!!! It's what node is good at, keeps your code cleaner, and easier to debug. Less moving parts together in the same space.
 
