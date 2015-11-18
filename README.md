@@ -33,7 +33,10 @@ An exercise to learn more Node.js and Beginner's Circuitry
 Once you follow all the raspberry pi setup, [Enable SPI](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
 
 Install git
-`sudo apt-get install git`
+```
+sudo apt-get install git
+```
+
 
 Allow GPIO to be accessed without root permissions
 ```
@@ -45,8 +48,12 @@ sudo adduser $USER gpio
 ```
 Where `$USER` is your user name (generally pi)
 
+
 Install node and npm
-'sudo apt-get install node npm'
+```
+sudo apt-get install node npm
+```
+
 
 Install code
 ```
@@ -55,8 +62,11 @@ cd GrillKeeper
 npm install
 ```
 
+
 Run program
-`node index.js`
+```
+node index.js
+```
 
 At this point, navigate to the pi IP address on port 3000 to view the site (Ex. 192.168.1.12:3000)
 
