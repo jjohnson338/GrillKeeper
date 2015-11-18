@@ -41,15 +41,15 @@ const operateFan = function(){
     fanController(0);//Turn off fan
     return;
   }
-  if((actualTempurature < (targetTemperature + tempVariance)) && (actualTempurature > (targetTemperature - tempVariance)))
+  if((actualTemperature < (targetTemperature + tempVariance)) && (actualTemperature > (targetTemperature - tempVariance)))
     return; //We're within the acceptable variance range...do nothing
 
   //If we're outside of the acceptable temp variance range, do something
-  if(actualTempurature > targetTemperature)
+  if(actualTemperature > targetTemperature)
     fanController(0);//Turn off fan
-  else if(actualTempurature < targetTemperature)
+  else if(actualTemperature < targetTemperature)
     fanController(1);
-    
+
   setTimeout(operateFan, 500);
 };
 
