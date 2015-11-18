@@ -86,7 +86,6 @@ At this point, navigate to the pi IP address on port 3000 to view the site (Ex. 
 * Modularize, modularize, modularize!!! It's what node is good at, keeps your code cleaner, and easier to debug. Less moving parts together in the same space.
 
 ##TODO
-* Write up setup and install guide for the Linux environment
 * Update wiring diagram
 
 ##Contributors
