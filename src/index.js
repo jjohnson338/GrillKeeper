@@ -49,8 +49,6 @@ const operateFan = function(){
     fanController(0);//Turn off fan
   else if(actualTemperature < targetTemperature)
     fanController(1);
-
-  setTimeout(operateFan, 500);
 };
 
 //Express setup
