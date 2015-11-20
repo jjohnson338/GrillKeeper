@@ -70,6 +70,8 @@ node index.js
 
 At this point, navigate to the pi IP address on port 3000 to view the site (Ex. 192.168.1.12:3000)
 
+##Helpful Links
+* [ET732 Data Sheet](https://docs.google.com/spreadsheets/d/1Ma0sr2OFEd4ZR56N6GEOvRwFRLqVvZ7UorXt5l91m2s/edit?usp=sharing)
 
 ##Lessons Learned
 
