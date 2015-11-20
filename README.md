@@ -46,7 +46,7 @@ make
 sudo make install
 sudo adduser $USER gpio
 ```
-Where `$USER` is your user name (generally pi)
+This will allow current user logged in to have access to GPIO. Logout and log back in for changes to take place.
 
 
 Install node and npm
