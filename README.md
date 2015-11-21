@@ -70,6 +70,29 @@ node index.js
 
 At this point, navigate to the pi IP address on port 3000 to view the site (Ex. 192.168.1.12:3000)
 
+###Optional
+
+To have the program accessible on port 80, add this line to your `/etc/rc.local`
+```
+iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+```
+
+To have to the program launch on bootup, create a bash file (wherever you'd like, I put mine in `/usr/local/bin` and named it `grillkeeper.sh`) with the following contents. (Replace $USER with the user you'd like the program to run under)
+```
+#!/bin/bash
+cd /home/path/to/grillkeeper
+su $USER -c 'node index.js'
+```
+Chmod that script so that it can execute
+```
+sudo chmod /usr/local/bin/grillkeeper.sh
+```
+
+Add this line to your `/etc/rc.local` file
+```
+/usr/local/bin/grillkeeper.sh
+```
+
 ##Helpful Links
 * [ET732 Data Sheet](https://docs.google.com/spreadsheets/d/1Ma0sr2OFEd4ZR56N6GEOvRwFRLqVvZ7UorXt5l91m2s/edit?usp=sharing)
 
