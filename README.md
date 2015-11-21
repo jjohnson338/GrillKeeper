@@ -77,11 +77,11 @@ To have the program accessible on port 80, add this line to your `/etc/rc.local`
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
 ```
 
-To have to the program launch on bootup, create a bash file (wherever you'd like, I put mine in `/usr/local/bin` and named it `grillkeeper.sh`) with the following contents. (Replace $USER with the user you'd like the program to run under)
+To have to the program launch on bootup, create a bash file (wherever you'd like, I put mine in `/usr/local/bin` and named it `grillkeeper.sh`) with the following contents. (Replace USER with the user you'd like the program to run under)
 ```
 #!/bin/bash
 cd /home/path/to/grillkeeper
-su $USER -c 'node index.js'
+su USER -c 'node index.js'
 ```
 Chmod that script so that it can execute
 ```
