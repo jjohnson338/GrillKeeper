@@ -85,7 +85,7 @@ su $USER -c 'node index.js'
 ```
 Chmod that script so that it can execute
 ```
-sudo chmod /usr/local/bin/grillkeeper.sh
+sudo chmod +x /usr/local/bin/grillkeeper.sh
 ```
 
 Add this line to your `/etc/rc.local` file
